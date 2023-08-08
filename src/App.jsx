@@ -2,6 +2,7 @@ import './App.css'
 import { useMovies } from './hooks/useMovies.js'
 import { Movies } from './components/Movies.jsx'
 import { useState, useEffect, useRef, useCallback } from 'react'
+import Navbar from './components/navbar/navbar'
 import debounce from 'just-debounce-it'
 
 function useSearch () {
@@ -66,7 +67,19 @@ function App () {
   }
 
   return (
+    <> <Navbar> <h1>Buscador de películas</h1>
+        <form className='form' onSubmit={handleSubmit}>
+          <input
+            style={{
+              border: '1px solid transparent',
+              borderColor: error ? 'red' : 'transparent'
+            }} onChange={handleChange} value={search} name='query' placeholder='Avengers, Star Wars, The Matrix...'
+          />
+          <input type='checkbox' onChange={handleSort} checked={sort} />
+          <button type='submit'>Buscar</button>
+        </form></Navbar>
     <div className='page'>
+     
 
       <header>
         <h1>Buscador de películas</h1>
@@ -89,6 +102,7 @@ function App () {
         }
       </main>
     </div>
+    </>
   )
 }
 
