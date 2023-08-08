@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {SiThemoviedatabase} from 'react-icons/si';
-import './NavbarStyles.css';
+import './NavBarStyles.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
